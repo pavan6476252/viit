@@ -1,4 +1,4 @@
-# VIIT VSKP
+# VIIT VSKP [Flutter App]
 ## _Study to gether_
 
 
@@ -20,11 +20,13 @@ This app is based on static api..
 ```
 
 
-## Contact 🛂
+## Contact Me 🛂
+
 | Social |
 | ------ | 
 | [Linkedin](https://www.linkedin.com/in/meesala-pavan-kumar-015472230/)
 | [Github](https://github.com/pavan6476252)
+| [Instagram](https://www.instagram.com/pavan_kumar_bluetick/)
 
 
 ## Development
