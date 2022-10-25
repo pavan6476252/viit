@@ -1,16 +1,41 @@
-# viit
+# VIIT VSKP
+## _Study to gether_
 
-A new Flutter project.
 
-## Getting Started
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-This project is a starting point for a Flutter application.
+## Features 
 
-A few resources to get you started if this is your first Flutter project:
+- Branch wise content separation
+- Able to filter (search) in syllabus screen of every branch
+- content will be updated on every possible situation.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Open for development  👩‍💻
+
+```sh
+This app is based on static api..
+--> clone  project and start developing.
+```
+
+
+## Contact 🛂
+| Social |
+| ------ | 
+| [Linkedin](https://www.linkedin.com/in/meesala-pavan-kumar-015472230/)
+| [Github](https://github.com/pavan6476252)
+
+
+## Development
+
+Want to contribute? Great!👏
+
+## License
+
+MIT
+
+**Free Software, Hell Yeah!**
+
+
+ 
