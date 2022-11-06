@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viit/view/utils/course_button.dart';
@@ -29,12 +30,12 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Text(viitViewModel.getUserError!.userError.toString()),
-          const  Text("Check your Internet !!"),
+            const Text("Check your Internet !!"),
             ElevatedButton(
                 onPressed: () async {
                   await viitViewModel.getViitApi();
                 },
-                child:const  Text("Retry"))
+                child: const Text("Retry"))
           ],
         ),
       );
@@ -42,9 +43,12 @@ class Home extends StatelessWidget {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Expanded(
         flex: 1,
-        child: Image.network(
-          viitViewModel.getViitApiModel!.image,
+        child: CachedNetworkImage(
+          imageUrl: viitViewModel.getViitApiModel!.image,
           width: double.maxFinite,
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
       ),
       Expanded(
