@@ -12,7 +12,7 @@
 
 
 ## Download from here
- [APK file](https://drive.google.com/file/d/1-6eDbtfkxzFuV3VBqaCvy_00W85Dc4tk/view?usp=share_link).
+ 👉[APK file](https://drive.google.com/file/d/1-6eDbtfkxzFuV3VBqaCvy_00W85Dc4tk/view?usp=share_link).
 ## Open for development  👩‍💻
 
 ```sh
