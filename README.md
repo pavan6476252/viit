@@ -1,4 +1,4 @@
-# VIIT VSKP [Flutter App]
+# VIVP VSKP [Flutter App]
 ## _Study to gether_
 
 
