@@ -1,28 +1,90 @@
+import 'package:Viit/pages/viit_docs/vii_docs_page.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
+ 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:viit/view/home.dart';
-import 'package:viit/viewmodel/searchHandle/search_handler_model.dart';
-import 'package:viit/viewmodel/syllabus_view_model.dart';
-import 'package:viit/viewmodel/viit_view_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp( const MyApp());
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final savedThemeMode = await AdaptiveTheme.getThemeMode();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(ProviderScope(
+      child: MyApp(
+    savedThemeMode: savedThemeMode,
+  )));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    AdaptiveThemeMode? savedThemeMode;
+    MyApp({required this.savedThemeMode, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ViitViewModel()),
-        ChangeNotifierProvider(create: (_) => SyllabusViewModel()),
-        ChangeNotifierProvider(create: (_) => SearchHandlerModel())
-      ],
-      child:const MaterialApp(
+    return AdaptiveTheme(
+      light: ThemeData(
+        brightness: Brightness.light,
+        useMaterial3: true,
+      ),
+      dark: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+      ),
+      initial: savedThemeMode ?? AdaptiveThemeMode.system,
+      builder: (theme, darkTheme) => MaterialApp(
+        theme: theme,
+    darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        onGenerateRoute: (RouteSettings settings) {
+          switch (settings.name) {
+            // case '/':
+            //   return MaterialPageRoute(builder: (context) => const SplashScreen());
+            // case '/':
+            //   return MaterialPageRoute(builder: (context) => HomePage());
+            // // case '/homepage':
+            // //   return MaterialPageRoute(builder: (context) => HomePage());
+            // case '/signupscreen':
+            //   return MaterialPageRoute(builder: (context) =>  SignUpPage());
+            // case '/loginpage':
+            //   return MaterialPageRoute(builder: (context) =>  LoginPage());
+            // case '/ecetcsepage':
+            //   return MaterialPageRoute(builder: (context) => const EcetCsePage());
+
+            // case '/settingspage':
+            //   return MaterialPageRoute(builder: (context) => const SettingPage());
+
+            case '/':
+              return MaterialPageRoute(
+                builder: (context) => ViitDocsPage(),
+              );
+            // case '/blogspage':
+            //   return MaterialPageRoute(
+            //     builder: (context) => const BlogsPage(),
+            //   );
+            // case '/viitdocspage':
+            //   return MaterialPageRoute(
+            //     builder: (context) =>  ViitDocsPage(),
+            //   );
+            // case '/ecetdocspage':
+            //   return MaterialPageRoute(
+            //     builder: (context) => const EcetDocsPage(),
+            //   );
+
+            default:
+              return MaterialPageRoute(
+                  builder: (context) => const Scaffold(
+                        body: Center(
+                          child: Text("page not found!!"),
+                        ),
+                      ));
+          }
+        },
       ),
     );
   }
